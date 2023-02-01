@@ -1,0 +1,24 @@
+repositories {
+    jcenter()
+    flatDir {
+        dirs 'src/main/libs'
+    }
+}
+
+dependencies {
+    implementation 'com.google.zxing:core:3.2.1'
+    implementation (name:'zxing-android-embedded-release', ext:'aar')
+    implementation 'com.android.support:appcompat-v7:23.1.0'
+}
+
+android {
+    buildToolsVersion '23.0.2' // Older versions may give compile errors
+    packagingOptions {
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+    }
+
+    defaultConfig {
+       minSdkVersion 24
+    }
+}
